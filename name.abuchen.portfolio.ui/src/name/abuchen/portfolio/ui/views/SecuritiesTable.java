@@ -1242,9 +1242,9 @@ public final class SecuritiesTable implements ModificationListener
                 return null;
 
             if (value.doubleValue() < 0)
-                return Colors.theme().redForeground();
+                return Colors.theme().negativeForeground();
             else if (value.doubleValue() > 0)
-                return Colors.theme().greenForeground();
+                return Colors.theme().positiveForeground();
             else
                 return null;
         }

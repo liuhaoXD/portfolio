@@ -21,12 +21,16 @@ public final class Colors
         private Color defaultForeground = Colors.BLACK;
         private Color defaultBackground = Colors.WHITE;
         private Color chipBackground = Colors.WHITE;
-        private Color warningBackground = getColor(254, 223, 107); // FEDF6B
+        private Color warningBackground = getColor(0xFE, 0xDF, 0x6B); // #FEDF6B
         private Color redBackground = Colors.RED;
         private Color greenBackground = Colors.GREEN;
         private Color redForeground = Colors.DARK_RED;
         private Color greenForeground = Colors.DARK_GREEN;
-        private Color grayForeground = getColor(112, 112, 112); // 707070
+
+        private Color positiveForeground = redForeground;
+        private Color negateiveForeground = greenForeground;
+
+        private Color grayForeground = getColor(0x70, 0x70, 0x70); // #707070
         private Color hyperlink = Display.getDefault().getSystemColor(SWT.COLOR_LINK_FOREGROUND);
 
         public Color defaultForeground()
@@ -107,6 +111,26 @@ public final class Colors
         public void setGreenForeground(RGBA color)
         {
             this.greenForeground = getColor(color.rgb);
+        }
+
+        public Color positiveForeground()
+        {
+            return positiveForeground;
+        }
+
+        public void setPositiveForeground(RGBA color)
+        {
+            this.positiveForeground = getColor(color.rgb);
+        }
+
+        public Color negativeForeground()
+        {
+            return negateiveForeground;
+        }
+
+        public void setNegativeForeground(RGBA color)
+        {
+            this.negateiveForeground = getColor(color.rgb);
         }
 
         public Color grayForeground()

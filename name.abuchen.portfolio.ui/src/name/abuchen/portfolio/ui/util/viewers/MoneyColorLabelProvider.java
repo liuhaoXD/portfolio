@@ -35,7 +35,7 @@ public final class MoneyColorLabelProvider extends ColumnLabelProvider
         if (money == null || money.isZero())
             return null;
 
-        return money.getAmount() >= 0 ? Colors.theme().greenForeground() : Colors.theme().redForeground();
+        return money.getAmount() >= 0 ? Colors.theme().positiveForeground() : Colors.theme().negativeForeground();
     }
 
     @Override
@@ -45,7 +45,9 @@ public final class MoneyColorLabelProvider extends ColumnLabelProvider
         if (money == null || money.isZero())
             return null;
 
-        return money.getAmount() >= 0 ? Images.GREEN_ARROW.image() : Images.RED_ARROW.image();
+        // The color of the arrow image should be consistent with the foreground color.
+        Color foregroundColors = getForeground(money);
+        return isGreen(foregroundColors) ? Images.GREEN_ARROW.image() : Images.RED_ARROW.image();
     }
 
     @Override
@@ -56,5 +58,17 @@ public final class MoneyColorLabelProvider extends ColumnLabelProvider
             return null;
 
         return Values.Money.format(money, client.getBaseCurrency());
+    }
+
+    /**
+     * Check whether color is green or not.
+     */
+    private static boolean isGreen(Color color)
+    {
+        int red = color.getRed();
+        int green = color.getGreen();
+        int blue = color.getBlue();
+        // FIXME: a simple compare
+        return green > red * 2 && green > blue * 2;
     }
 }
