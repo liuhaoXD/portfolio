@@ -27,8 +27,8 @@ public final class Colors
         private Color redForeground = Colors.DARK_RED;
         private Color greenForeground = Colors.DARK_GREEN;
 
-        private Color positiveForeground = redForeground;
-        private Color negateiveForeground = greenForeground;
+        private Color positiveForeground = greenForeground;
+        private Color negateiveForeground = redForeground;
 
         private Color grayForeground = getColor(0x70, 0x70, 0x70); // #707070
         private Color hyperlink = Display.getDefault().getSystemColor(SWT.COLOR_LINK_FOREGROUND);

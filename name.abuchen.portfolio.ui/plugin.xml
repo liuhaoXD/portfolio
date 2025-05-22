@@ -102,6 +102,12 @@
                name="gray-foreground">
          </property-name>
          <property-name
+               name="positive-foreground">
+         </property-name>
+         <property-name
+               name="negative-foreground">
+         </property-name>
+         <property-name
                name="hyperlink">
          </property-name>
       </handler>
